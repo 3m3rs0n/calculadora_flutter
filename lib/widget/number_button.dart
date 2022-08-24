@@ -4,9 +4,12 @@ class NumberButton extends StatelessWidget {
   final Color color;
   final String text;
   final Function action;
+  final double width;
 
-  NumberButton({Key? key, color, required this.text, required this.action})
+  NumberButton(
+      {Key? key, color, required this.text, required this.action, width})
       : color = color ?? const Color(0xff333333),
+        width = width ?? 65.0,
         super(key: key);
 
   @override
@@ -22,7 +25,7 @@ class NumberButton extends StatelessWidget {
       child: TextButton(
         style: bstyle,
         child: Container(
-          width: 65,
+          width: width,
           height: 50,
           child: Center(
             child: Text(
@@ -31,7 +34,7 @@ class NumberButton extends StatelessWidget {
             ),
           ),
         ),
-        onPressed: () => action,
+        onPressed: () => action(),
       ),
     );
   }
