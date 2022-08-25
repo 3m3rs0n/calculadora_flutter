@@ -48,7 +48,17 @@ class CalculadoraBloc extends Bloc<CalculadoraEvent, CalculadoraState> {
     });
 
     on<Eval>((event, emit) {
-      emit(state.copywith(flag: true));
+      if (state.flag) {
+        emit(CalculadoraState(
+            historial: (state.operacion != '0')
+                ? ([state.operacion] + state.historial)
+                : state.historial,
+            result: '0',
+            operacion: '0',
+            flag: false));
+      } else {
+        emit(state.copywith(flag: true));
+      }
     });
 
     on<Del>((event, emit) {

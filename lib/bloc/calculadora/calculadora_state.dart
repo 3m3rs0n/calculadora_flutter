@@ -22,4 +22,6 @@ class CalculadoraState {
           operacion: operacion ?? this.operacion,
           historial: historial ?? this.historial,
           flag: flag ?? this.flag);
+
+  
 }
