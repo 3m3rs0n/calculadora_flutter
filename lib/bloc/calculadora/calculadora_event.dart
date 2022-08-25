@@ -21,7 +21,7 @@ class C extends CalculadoraEvent {}
 
 class AC extends CalculadoraEvent {}
 
-class AfterEval extends CalculadoraEvent {
+class Set extends CalculadoraEvent {
   final String str;
-  AfterEval(this.str);
+  Set(this.str);
 }

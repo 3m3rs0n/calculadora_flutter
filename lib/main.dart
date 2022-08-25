@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
     final calculadoraBloc = BlocProvider.of<CalculadoraBloc>(context);
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Calculadora Flutter',
       home: Scaffold(
         body: Container(
@@ -116,7 +117,7 @@ class MyApp extends StatelessWidget {
                   NumberButton(
                     text: '0',
                     action: () => calculadoraBloc.add(AddNum('0')),
-                    width: 145.0,
+                    width: 150.0,
                   ),
                   NumberButton(
                       text: '.',

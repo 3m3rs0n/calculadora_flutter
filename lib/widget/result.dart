@@ -14,7 +14,7 @@ class Result extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-        onPressed: () => action,
+        onPressed: () => action(),
         child: Container(
           width: double.infinity,
           alignment: Alignment.centerRight,

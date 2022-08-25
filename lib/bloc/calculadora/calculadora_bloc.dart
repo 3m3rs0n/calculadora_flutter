@@ -66,6 +66,13 @@ class CalculadoraBloc extends Bloc<CalculadoraEvent, CalculadoraState> {
     on<C>((event, emit) {
       emit(state.copywith(result: '0', operacion: '0', flag: false));
     });
+
+    on<Set>(
+      (event, emit) {
+        emit(state.copywith(
+            flag: false, operacion: event.str, result: TotalExp(event.str)));
+      },
+    );
   }
 }
 

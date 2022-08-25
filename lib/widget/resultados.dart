@@ -8,15 +8,6 @@ class Resultados extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> historial = [
-      '123',
-      '6545+685',
-      '456-56',
-      '12314',
-      '12314123',
-      '1231'
-    ];
-
     return BlocBuilder<CalculadoraBloc, CalculadoraState>(
         builder: ((context, state) {
       return Column(
@@ -30,7 +21,8 @@ class Resultados extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return Result(
                     text: state.historial[index],
-                    action: () => print('hola'),
+                    action: () => BlocProvider.of<CalculadoraBloc>(context)
+                        .add(Set(state.historial[index])),
                     opacity: 0.5,
                     size: 20.0,
                   );
@@ -39,14 +31,15 @@ class Resultados extends StatelessWidget {
           //DATA
           Result(
             text: state.operacion,
-            action: () => print('hola'),
+            action: () => {},
             size: state.flag ? 25.0 : 40.0,
             opacity: state.flag ? 0.5 : 1.0,
           ),
           //Resultado
           Result(
             text: '= ${state.result}',
-            action: () => print('hola'),
+            action: () => BlocProvider.of<CalculadoraBloc>(context)
+                .add(Set(state.result)),
             opacity: state.flag ? 1.0 : 0.5,
             size: state.flag ? 40.0 : 25.0,
           ),
