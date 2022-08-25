@@ -16,19 +16,19 @@ class Result extends StatelessWidget {
     return TextButton(
         onPressed: () => action(),
         child: Container(
-          width: double.infinity,
           alignment: Alignment.centerRight,
-          margin: const EdgeInsets.only(right: 20, top: 7, bottom: 7),
-          child: AnimatedOpacity(
-              opacity: opacity,
-              duration: const Duration(milliseconds: 100),
-              child: AnimatedSize(
-                duration: const Duration(milliseconds: 100),
-                child: Text(
-                  text,
-                  style: TextStyle(fontSize: size),
-                ),
-              )),
+          margin: const EdgeInsets.only(right: 20, top: 5, bottom: 5),
+          child: FittedBox(
+              child: AnimatedOpacity(
+                  opacity: opacity,
+                  duration: const Duration(milliseconds: 150),
+                  child: AnimatedSize(
+                    duration: const Duration(milliseconds: 150),
+                    child: Text(
+                      text,
+                      style: TextStyle(fontSize: size),
+                    ),
+                  ))),
         ));
   }
 }
